@@ -34,6 +34,32 @@ def test_area_of_circle_zero_radius():
     assert result == 0
 
 
+def test_area_of_circle_negative_radius():
+    """Test with a negative radius (should raise ValueError)."""
+    # Arrange
+    radius = -1
+
+    # Act
+    try:
+        area_of_circle(radius)
+        assert False, "Expected ValueError for negative radius"
+    except ValueError:
+        pass
+
+
+def test_area_of_circle_non_numeric_radius():
+    """Test with a non-numeric radius (should raise TypeError)."""
+    # Arrange
+    radius = "abc"
+
+    # Act
+    try:
+        area_of_circle(radius)
+        assert False, "Expected TypeError for non-numeric radius"
+    except TypeError:
+        pass
+
+
 def test_get_nth_fibonacci_zero():
     """Test with n=0."""
     # Arrange
@@ -68,3 +94,29 @@ def test_get_nth_fibonacci_ten():
 
    # Assert
    assert result == 55
+
+
+def test_get_nth_fibonacci_negative():
+    """Test with negative n (should raise ValueError)."""
+    # Arrange
+    n = -5
+
+    # Act
+    try:
+        get_nth_fibonacci(n)
+        assert False, "Expected ValueError for negative n"
+    except ValueError:
+        pass
+
+
+def test_get_nth_fibonacci_non_integer():
+    """Test with non-integer n (should raise TypeError)."""
+    # Arrange
+    n = 3.5
+
+    # Act
+    try:
+        get_nth_fibonacci(n)
+        assert False, "Expected TypeError for non-integer n"
+    except TypeError:
+        pass
